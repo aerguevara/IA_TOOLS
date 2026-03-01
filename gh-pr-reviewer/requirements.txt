@@ -1,0 +1,7 @@
+crewai
+langchain-ollama
+pydantic
+langchain-community
+langchain-core
+# Para herramientas de GitHub CLI
+# gh se asume instalado en el sistema

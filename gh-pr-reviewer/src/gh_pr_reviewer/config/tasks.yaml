@@ -1,0 +1,16 @@
+review_and_merge_task:
+  description: >-
+    Realiza una auditoría técnica del diff de la PR #{pr_number} en `{repo_name}` ('{pr_title}').
+    
+    DIFF:
+    {diff_content}
+    
+    INSTRUCCIONES DE CALIDAD:
+    1. PROPORCIONALIDAD: Si el cambio es pequeño, el resumen debe ser pequeño. Si el cambio es grande, resume los módulos o funciones clave afectados.
+    2. OBJETIVIDAD: Describe QUÉ se ha modificado (p.ej. "Se añade validación en X", "Se cambia constante Y"). 
+    3. PROHIBIDO: Usar lenguaje de marketing, triples o asunciones sobre "mejoras" o "avances" subjetivos.
+    4. ESTRUCTURA: Usa puntos bala si hay varios cambios distintos. Si es uno solo, usa una sola línea.
+    5. CIERRE: Finaliza siempre con: "Revisado y procesado automáticamente."
+  expected_output: >-
+    Un resumen técnico proporcional, puramente objetivo y la frase de cierre.
+  agent: code_reviewer
