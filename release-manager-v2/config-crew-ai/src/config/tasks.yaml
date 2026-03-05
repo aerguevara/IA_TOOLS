@@ -1,0 +1,28 @@
+analyze_diff_task:
+  description: >
+    Analyze the following TEST configuration content:
+    {config_test_content}
+    Identify new keys, nodes, or structures. Ignore values that represent URLs, credentials, or hosts. Provide a clear report of the changes to be applied.
+  expected_output: >
+    A technical report detailing the structural changes and new keys found in the TEST configuration.
+
+merge_config_task:
+  description: >
+    Using the following diff report:
+    {diff_report}
+    Merge the changes into these files:
+    PRE: {config_pre_current}
+    PRO: {config_pro_current}
+    STRICT RULE: Do NOT overwrite keys containing 'url', 'host', 'password', 'secret', 'token', or 'db'.
+  expected_output: >
+    The updated content for PRE and PRO configurations in a structured format.
+
+validate_config_task:
+  description: >
+    Validate the new configurations:
+    PRE New: {config_pre_new}
+    PRO New: {config_pro_new}
+    Compare PRO New with PRO Original: {config_pro_original}
+    Ensure it is valid JSON/YAML and no sensitive TEST data leaked into PRO.
+  expected_output: >
+    A final JSON response containing status, config_pre_new, config_pro_new, and reasoning.
